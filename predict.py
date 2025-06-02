@@ -102,7 +102,7 @@ This dashboard shows email engagement metrics and lead characteristics.
 def load_data():
     with st.spinner('Loading data...'):
         # Load processed data
-        df = pd.read_csv('/Users/saahithisonati/Downloads/Processed_Cleaned.csv')
+        df = df = pd.read_csv('Processed_Cleaned.csv')
         return df
 
 # Main app
@@ -272,7 +272,7 @@ def main():
     
     with tab4:
         # load once
-        prompts_df = pd.read_csv('/Users/saahithisonati/Downloads/genai_playbook_prompts_website.csv')
+        prompts_df = pd.read_csv('genai_playbook_prompts_website.csv')
         # industry_map = {fine: broad 
         #         for broad, fines in industry_buckets.items() 
         #         for fine in fines}
