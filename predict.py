@@ -97,18 +97,28 @@ st.markdown("""
 This dashboard shows email engagement metrics and lead characteristics.
 """)
 
+# csv_url = f"https://drive.google.com/file/d/1K3wkKf6ErojHVzLXwPUCWgYu-pmZIotg/view?usp=share_link"
+
+# file_id = "1K3wkKf6ErojHVzLXwPUCWgYu-pmZIotg"
+# csv_url = f"https://drive.google.com/uc?export=download&id={file_id}"
+
 # Load data
 @st.cache_data
 def load_data():
     with st.spinner('Loading data...'):
         # Load processed data
-        df = df = pd.read_csv('Processed_Cleaned.csv')
+        df = pd.read_csv('Processed_Cleaned.csv')
+        # df = pd.read_csv(csv_url)
+        df.columns = df.columns.str.strip().str.lower()
+        df.rename(columns={'industry ': 'industry'}, inplace=True)
+
         return df
 
 # Main app
 def main():
     # Load data
     df = load_data()
+    # df.columns = df.columns.str.strip().str.lower()
     
     # Sidebar filters
     st.sidebar.header("Filters")
